@@ -1,0 +1,28 @@
+<%- include('../base/header') -%>
+<%- include('../base/navbar') -%>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6 mt-5 offset-md-3" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);border-radius: 2px;">
+            <p class="display-4 text-center p-2">Login to panel</p>
+            <hr>
+            <%- include('../base/messages') -%>
+            <div class="p-2">
+            <form  action="/users/login" method="post">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Log In</button>
+                    <a href="/" class="text-dark float-right mt-2">Home Page</a>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('../base/footer') -%>

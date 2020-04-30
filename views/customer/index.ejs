@@ -1,0 +1,87 @@
+<%- include('../base/header') -%>
+<%- include('../base/navbar') -%>
+<div class="container">
+
+<%- include('../base/messages') -%>
+
+      <div class="row mb-4">
+      <div class="col-md-12" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+      
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <ol class="navbar-nav">
+            <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Customers</li>
+        </ol>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link btn btn-primary btn-sm mr-2 text-light" href="/customer/new">New</a>
+                </li>
+            </ul>
+        </div>
+  </nav>
+  </div>
+  </div>
+  
+  <div class="row mb-4">
+  <div class="col-md-12 p-0" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+
+<% if(customers != "") { %>        
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th  style="font-weight: normal;font-size: 14px;">First name</th>
+      <th  style="font-weight: normal;font-size: 14px;">Last name</th>
+      <th  style="font-weight: normal;font-size: 14px;">Contact</th>
+      <th  style="font-weight: normal;font-size: 14px;">Email</th>
+      <th  style="font-weight: normal;font-size: 14px;">Created</th>
+      <th  style="font-weight: normal;font-size: 14px;">Show More</th>
+    </tr>
+  </thead>
+<tbody>
+
+  <% customers.forEach((customer)=> {%>
+          <tr>
+            <td style="font-weight: normal;font-size: 14px;"><%= customer.Fname%></td>
+            <td style="font-weight: normal;font-size: 14px;"><%= customer.LName%></td>
+            <td style="font-weight: normal;font-size: 14px;"><%= customer.Contact%></td> 
+            <td style="font-weight: normal;font-size: 14px;"><%= customer.Email%></td>
+            <td style="font-weight: normal;font-size: 14px;"><%= customer.created_at.toDateString()%></td>
+            <td style="font-weight: normal;font-size: 14px;"><a href="<%=  '/customer/single/'  + customer.id %>" class="btn btn-primary btn-sm">Show More</a></td>
+          </tr>
+  <%})%>
+
+</tbody>
+</table>
+
+<%} else {%>
+  <div class="mt-3 text-center">
+    <p class="display-5 text-center">
+      No Customers ! please Add <a class="text-muted" href="/customer/new"> New</a>
+    </p>
+  </div>
+<% } %>
+
+</div>
+</div>
+
+<% if(customers != "") { %>        
+<div class="row">
+  <div class="col-12 mt-2 mb-2">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <% for(let i = 1;i<=Math.ceil(total/5);i++) {%>
+            <% if( i == page) {%>
+            <li class="page-item active"><a class="page-link" href="/customer/all/<%= i %>"><%= i %></a></li>
+            <%} else {%>
+            <li class="page-item"><a class="page-link" href="/customer/all/<%= i %>"><%= i %></a></li>
+            <%}%>
+          <%}%>
+        </ul>
+      </nav>
+  </div>
+</div>
+<% } %>
+
+</div>
+<%- include('../base/footer') -%>

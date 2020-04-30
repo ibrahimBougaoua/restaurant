@@ -1,0 +1,159 @@
+<%- include('../base/header') -%>
+<%- include('../base/navbar') -%>
+<div class="container">
+
+<%- include('../base/messages') -%>
+
+            <div class="row mb-4">
+                    <div class="col-md-12" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+                            <nav class="navbar navbar-expand-lg navbar-light">
+                                    <ol class="navbar-nav">
+                                        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="/users/all">Users</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                                    </ol>
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                      <ul class="navbar-nav ml-auto">
+                                            <li class="nav-item">
+                                              <a class="nav-link btn btn-primary btn-sm mr-2 text-light" href="/users/all">All</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                              </nav>
+                        </div>
+                </div>
+
+    <div class="row mb-4">
+        <div class="col-md-12 p-4" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+            <form  action="/users/update" method="post">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="title">First name</label>
+                    <input type="text" name="firstname" id="title" class="form-control" value="<%= user.Fname%>" >
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="title">Last name</label>
+                    <input type="text" name="lastname" id="title" class="form-control" value="<%= user.LName%>" >
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="title">Contact</label>
+                    <input type="text" name="contact" id="title" class="form-control" value="<%= user.Contact%>" >
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="title">Email</label>
+                    <input type="email" name="email" id="title" class="form-control" value="<%= user.email%>" >
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="role">Role</label>
+                    <select name="role" class="form-control">
+                            <% switch (user.role) {
+                                case 'adminstrator' : %>
+                                <option value="adminstrator" selected>Adminstrator</option>
+                                <option value="customer">Customer editor</option>
+                                <option value="waiter">Waiter editor</option>
+                                <option value="chef">Chef editor</option>
+                                <option value="table">table editor</option>
+                                <option value="bill">bill editor</option>
+                                <option value="booking">booking editor</option>
+                                <option value="foodrink">Food & drink editor</option>                                        
+                                <% break;
+                                
+                                case 'customer' : %>
+                                <option value="adminstrator">Adminstrator</option>
+                                <option value="customer" selected>Customer editor</option>
+                                <option value="waiter">Waiter editor</option>
+                                <option value="chef">Chef editor</option>
+                                <option value="table">table editor</option>
+                                <option value="bill">bill editor</option>
+                                <option value="booking">booking editor</option>
+                                <option value="foodrink">Food & drink editor</option>
+                                <% break;
+                                
+                                case 'waiter' : %>
+                                <option value="adminstrator">Adminstrator</option>
+                                <option value="customer">Customer editor</option>
+                                <option value="waiter" selected>Waiter editor</option>
+                                <option value="chef">Chef editor</option>
+                                <option value="table">table editor</option>
+                                <option value="bill">bill editor</option>
+                                <option value="booking">booking editor</option>
+                                <option value="foodrink">Food & drink editor</option>
+                                <% break;
+                                
+                                case 'chef' : %>
+                                <option value="adminstrator">Adminstrator</option>
+                                <option value="customer">Customer editor</option>
+                                <option value="waiter">Waiter editor</option>
+                                <option value="chef" selected>Chef editor</option>
+                                <option value="table">table editor</option>
+                                <option value="bill">bill editor</option>
+                                <option value="booking">booking editor</option>
+                                <option value="foodrink">Food & drink editor</option>
+                                <% break;
+                                
+                                case 'table' : %>
+                                <option value="adminstrator">Adminstrator</option>
+                                <option value="customer">Customer editor</option>
+                                <option value="waiter">Waiter editor</option>
+                                <option value="chef">Chef editor</option>
+                                <option value="table" selected>table editor</option>
+                                <option value="bill">bill editor</option>
+                                <option value="booking">booking editor</option>
+                                <option value="foodrink">Food & drink editor</option>
+                                <% break;
+
+                                case 'bill' : %>
+                                <option value="adminstrator">Adminstrator</option>
+                                <option value="customer">Customer editor</option>
+                                <option value="waiter">Waiter editor</option>
+                                <option value="chef">Chef editor</option>
+                                <option value="table">table editor</option>
+                                <option value="bill" selected>bill editor</option>
+                                <option value="booking">booking editor</option>
+                                <option value="foodrink">Food & drink editor</option>
+                                <% break;
+
+                                case 'booking' : %>
+                                <option value="adminstrator">Adminstrator</option>
+                                <option value="customer">Customer editor</option>
+                                <option value="waiter">Waiter editor</option>
+                                <option value="chef">Chef editor</option>
+                                <option value="table">table editor</option>
+                                <option value="bill">bill editor</option>
+                                <option value="booking" selected>booking editor</option>
+                                <option value="foodrink">Food & drink editor</option>
+                                <% break;
+
+                                case 'foodrink' : %>
+                                <option value="adminstrator">Adminstrator</option>
+                                <option value="customer">Customer editor</option>
+                                <option value="waiter">Waiter editor</option>
+                                <option value="chef">Chef editor</option>
+                                <option value="table">table editor</option>
+                                <option value="bill">bill editor</option>
+                                <option value="booking">booking editor</option>
+                                <option value="foodrink" selected>Food & drink editor</option>
+                                <% break;
+                                } %>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" name="confirm_password" id="confirm_password" class="form-control">
+                </div>
+                <input type="hidden" name="id" value="<%=user.id%>">
+                <div class="form-group col-md-12">
+                    <button type="submit" class="btn btn-primary"> Update</button>
+                </div>
+              </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    
+<%- include('../base/footer') -%>

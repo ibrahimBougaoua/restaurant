@@ -1,0 +1,97 @@
+<%- include('../base/header') -%>
+<%- include('../base/navbar') -%>
+<div class="container">
+
+<%- include('../base/messages') -%>
+        
+            <div class="row mb-4">
+                    <div class="col-md-12" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+                            <nav class="navbar navbar-expand-lg navbar-light">
+                                    <ol class="navbar-nav">
+                                        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="/waiter/all">Waiters</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                                    </ol>
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                      <ul class="navbar-nav ml-auto">
+                                            <li class="nav-item">
+                                              <a class="nav-link btn btn-primary btn-sm mr-2 text-light" href="/waiter/all">All</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                              </nav>
+                        </div>
+                </div>
+        
+    <div class="row mb-4">
+        <div class="col-md-12 p-4" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+            <form  action="/waiter/update" method="post">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="title">First name</label>
+                    <input type="text" name="firstname" id="title" class="form-control" value="<%= waiter.Fname%>" >
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="title">Last name</label>
+                    <input type="text" name="lastname" id="title" class="form-control" value="<%= waiter.LName%>" >
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="title">Email</label>
+                    <input type="email" name="email" id="title" class="form-control" value="<%= waiter.Email%>" >
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="salary">Salary</label>
+                    <select  name="salary" id="inputsalary" class="form-control">
+                        <% salary.forEach((salary)=> {%>
+                            <% if(waiter.Salary == salary) {%>
+                            <option value="<%= salary %>" selected><%= salary %> $</option>
+                            <% } else { %>
+                            <option value="<%= salary %>"><%= salary %> $</option>
+                            <% } %>
+                        <% }) %>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="city">City</label>
+                    <select  name="city" id="inputcity" class="form-control">
+                            <% city.forEach((city)=> {%>
+                                <% if(waiter.City == city) {%>
+                                <option value="<%= city %>" selected><%= city %></option>
+                                <% } else { %>
+                                <option value="<%= city %>"><%= city %></option>
+                                <% } %>
+                            <% }) %> 
+                    </select>                
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="postcode">Postcode</label>
+                    <input type="text" name="postcode" id="postcode" class="form-control" value="<%= waiter.Postcode%>">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="sex">Sex</label>
+                    <select name="sex" class="form-control">
+                        <% if(waiter.Sex == "man") {%>
+                            <option value="man" selected>Man</option>
+                            <option value="woman">Woman</option>
+                        <% }  else {%>
+                            <option value="man">Man</option>
+                            <option value="woman" selected>Woman</option>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="birthdate">Birthdate</label>
+                    <input type="date" name="birthdate" id="birthdate" class="form-control" value="<%= waiter.Birthdate%>">
+                </div>
+                <input type="hidden" name="id" value="<%=waiter.id%>">
+                <div class="form-group col-md-6">
+                    <button type="submit" class="btn btn-primary"> Update</button>
+                </div>
+             </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    
+<%- include('../base/footer') -%>

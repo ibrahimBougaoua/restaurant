@@ -1,0 +1,57 @@
+<%- include('../base/header') -%>
+<%- include('../base/navbar') -%>
+<div class="container">
+
+<%- include('../base/messages') -%>
+        
+            <div class="row mb-4">
+                    <div class="col-md-12" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+                            <nav class="navbar navbar-expand-lg navbar-light">
+                                    <ol class="navbar-nav">
+                                        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="/customer/all">Customers</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                                    </ol>
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                      <ul class="navbar-nav ml-auto">
+                                            <li class="nav-item">
+                                              <a class="nav-link btn btn-primary btn-sm mr-2 text-light" href="/customer/all">All</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                              </nav>
+                        </div>
+                </div>
+        
+    <div class="row mb-4">
+        <div class="col-md-12 p-4" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+            <form  action="/customer/update" method="post">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="title">First name</label>
+                    <input type="text" name="firstname" id="title" class="form-control" value="<%= customer.Fname%>" >
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="title">Last name</label>
+                    <input type="text" name="lastname" id="title" class="form-control" value="<%= customer.LName%>" >
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="title">Contact</label>
+                    <input type="text" name="contact" id="title" class="form-control" value="<%= customer.Contact%>" >
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="title">Email</label>
+                    <input type="email" name="email" id="title" class="form-control" value="<%= customer.Email%>" >
+                </div>
+                <input type="hidden" name="id" value="<%=customer.id%>">
+                <div class="form-group col-md-6">
+                    <button type="submit" class="btn btn-primary"> Update</button>
+                </div>
+              </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    
+<%- include('../base/footer') -%>

@@ -1,0 +1,152 @@
+<%- include('../base/header.ejs') -%>
+<%- include('../base/navbar.ejs') -%>
+<div class="container">
+
+<%- include('../base/messages') -%>
+        
+            <div class="row mb-4">
+                    <div class="col-md-12" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+                            <nav class="navbar navbar-expand-lg navbar-white">
+                                    <ol class="navbar-nav">
+                                        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="/chef/all">Chefs</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">More details</li>
+                                    </ol>
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                      <ul class="navbar-nav ml-auto">
+                                            <li class="nav-item">
+                                              <a class="nav-link btn btn-primary btn-sm mr-2 text-light" href="/chef/all">All</a>
+                                            </li>
+                                            <li class="nav-item">
+                                              <a class="nav-link btn btn-primary btn-sm mr-2 text-light" href="/chef/new">New</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                              </nav>
+                        </div>
+                </div>
+        
+
+                <div class="row w-75 float-left">
+                        <div class="col-md-12 p-4" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+                          <h2 class="display-5 text-muted">More details</h2>
+                          <hr>
+                        <div class="row">
+                            <div class="col-sm-12">
+                              <p class="text-muted float-left w-25">First Name</p>
+                              <p class="text-muted float-left"><%=chef.Fname %></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                              <p class="text-muted float-left w-25">Last Name</p>
+                              <p class="text-muted float-left"><%=chef.LName %></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                              <p class="text-muted float-left w-25">Email</p>
+                              <p class="text-muted float-left"><%=chef.Email %></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                              <p class="text-muted float-left w-25">Type</p>
+                              <p class="text-muted float-left"><%=chef.Type %></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                              <p class="text-muted float-left w-25">Experience</p>
+                              <p class="text-muted float-left"><%=chef.Experience %></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                              <p class="text-muted float-left w-25">City</p>
+                              <p class="text-muted float-left"><%=chef.City %></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                              <p class="text-muted float-left w-25">Post code</p>
+                              <p class="text-muted float-left"><%=chef.Postcode %></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                              <p class="text-muted float-left w-25">Salary</p>
+                              <p class="text-muted float-left"><%=chef.Salary %></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                              <p class="text-muted float-left w-25">Sex</p>
+                              <p class="text-muted float-left"><%=chef.Sex %></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                              <p class="text-muted float-left w-25">Birthdate</p>
+                              <p class="text-muted float-left"><%=chef.Birthdate %></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                              <p class="text-muted float-left w-25">Created at</p>
+                              <p class="text-muted float-left"><%=chef.created_at.toDateString()%></p>
+                            </div>
+                        </div>
+        </div>
+    </div>
+
+        <div class="row w-25 float-right">
+        <div class="col-md-12 p-4 ml-auto" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+            <div class="card" style="width: 100%;border:none;">
+                <img src="/sys/chef.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <a href="<%= '/chef/edit/' + chef.id %>" class="btn btn-primary">Edit</a>
+
+
+                  <div class="float-right">
+
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Delete</button>
+                        
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Are you sure ?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                              <p class="display-5">This chef will be deleted</p>
+      
+                        <form  action="/chef/delete" method="post">
+                          <input type="hidden" name="id" value="<%=chef.id%>">
+                          <div class="form-group">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                          </div>
+                        </form>
+      
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+</div>
+        
+    </div>
+</div>
+</div>
+
+<%- include('../base/footer.ejs') -%>

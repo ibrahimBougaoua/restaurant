@@ -1,0 +1,80 @@
+<%- include('../base/header') -%>
+<%- include('../base/navbar') -%>
+<div class="container">
+
+<%- include('../base/messages') -%>
+
+            <div class="row mb-4">
+                    <div class="col-md-12" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+                            <nav class="navbar navbar-expand-lg navbar-light">
+                                    <ol class="navbar-nav">
+                                        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="/booking/all">Booking</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                                    </ol>
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                      <ul class="navbar-nav ml-auto">
+                                            <li class="nav-item">
+                                              <a class="nav-link btn btn-primary btn-sm mr-2 text-light" href="/booking/all">All</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                              </nav>
+                        </div>
+                </div>
+        
+    <div class="row mb-4">
+            <div class="col-md-12 p-4" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+                <form  action="/booking/update" method="post">
+                  <div class="form-row">
+                <div class="form-group col-md-6">
+                        <label for="type">Customer</label>
+                        <select name="customerID" class="form-control">
+                        <% customer.forEach((customers)=> {%>
+                            <% if(customers._id == booking.CustomerID) {%>
+                            <option value="<%= customers._id%>" selected><%= customers.Email%></option>
+                            <% } else { %>
+                            <option value="<%= customers._id%>"><%= customers.Email%></option>
+                            <% } %>
+                        <%})%>
+                        </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="date">Date</label>
+                    <input type="date" name="date" id="date" class="form-control" value="<%= booking.Date%>">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="time">Time</label>
+                    <select  name="time" id="inputcity" class="form-control">
+                            <% time.forEach((times)=> {%>
+                                <% if(times == booking.time) {%>
+                                <option value="<%= times %>" selected><%= times %></option>
+                                <% } else { %>
+                                <option value="<%= times %>"><%= times %></option>
+                                <% } %>
+                            <% }) %> 
+                    </select>                
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="number_place">Number place</label>
+                    <select  name="number_place" id="inputcity" class="form-control">
+                            <% number_place.forEach((number_place)=> {%>
+                                <% if(number_place == booking.number_place) {%>
+                                <option value="<%= number_place %>" selected><%= number_place %></option>
+                                <% } else { %>
+                                <option value="<%= number_place %>"><%= number_place %></option>
+                                <% } %>
+                            <% }) %> 
+                    </select>                
+                </div>
+                <input type="hidden" name="id" value="<%=booking.id%>">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary"> Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    
+<%- include('../base/footer') -%>

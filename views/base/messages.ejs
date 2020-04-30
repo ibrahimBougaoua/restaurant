@@ -1,0 +1,31 @@
+<div class="row mb-3">
+<div class="col-md-12">
+
+<% if ( locals.success && success != "" ) { %>
+    <div class="alert alert-success mt-3">
+    <%= success %>
+    </div>
+<% } %>
+
+<% if (locals.warning && warning != "" ) { %>
+    <div class="alert alert-warning mt-3">
+    <%= warning %>
+    </div>
+<% } %>
+
+<% if ( locals.errors ) { %>
+    <% errors.forEach((err) => { %>
+        <div class="alert alert-danger mt-3">
+        <%= err.msg%>
+        </div>
+    <% }) %>
+<% } %>
+
+<% if (locals.error && error != "" ) { %>
+    <div class="alert alert-danger mt-3">
+    <%= error %>
+    </div>
+<% } %>
+
+</div>
+</div>

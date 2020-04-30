@@ -1,0 +1,112 @@
+<%- include('../base/header') -%>
+<%- include('../base/navbar') -%>
+<div class="container">
+
+<%- include('../base/messages') -%>
+
+            <div class="row mb-4">
+                    <div class="col-md-12" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+                            <nav class="navbar navbar-expand-lg navbar-light">
+                                    <ol class="navbar-nav">
+                                        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="/bill/all">Bills</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                                    </ol>
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                      <ul class="navbar-nav ml-auto">
+                                            <li class="nav-item">
+                                              <a class="nav-link btn btn-primary btn-sm mr-2 text-light" href="/bill/all">All</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                              </nav>
+                        </div>
+                </div>
+        
+    <div class="row mb-4">
+        <div class="col-md-12 p-4" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+            <form  action="/bill/update" method="post">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="sub_total">Sub total</label>
+                    <input type="text" name="sub_total" id="sub_total" class="form-control" value="<%= bill.Sub_Total%>" >
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="vat">Vat</label>
+                    <input type="text" name="vat" id="vat" class="form-control" value="<%= bill.Vat%>" >
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="total">Total</label>
+                    <input type="text" name="total" id="total" class="form-control" value="<%= bill.Total%>" >
+                </div>
+                <div class="form-group col-md-6">
+                        <label for="type">Customer</label>
+                        <select name="customerID" class="form-control">
+                        <% customer.forEach((customers)=> {%>
+                            <% if(customers._id == bill.CustomerID) {%>
+                            <option value="<%= customers._id%>" selected><%= customers.Email%></option>
+                            <% } else { %>
+                            <option value="<%= customers._id%>"><%= customers.Email%></option>
+                            <% } %>
+                        <%})%>
+                        </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="type">Waiter</label>
+                    <select name="waiter" class="form-control">
+                    <% waiter.forEach((waiters)=> {%>
+                        <% if(waiters._id == bill.waiter_id) {%>
+                            <option value="<%= waiters._id%>" selected><%= waiters.Fname%></option>
+                        <% } else { %>
+                            <option value="<%= waiters._id%>"><%= waiters.Fname%></option>
+                        <% } %>
+                    <%})%>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="type">Food</label>
+                    <select name="food" class="form-control">
+                    <% food.forEach((foods)=> {%>
+                        <% if(foods._id == bill.food_id) {%>
+                            <option value="<%= foods._id%>" selected><%= foods.Name%></option>
+                        <% } else { %>
+                            <option value="<%= foods._id%>"><%= foods.Name%></option>
+                        <% } %>
+                    <%})%>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="type">Drink</label>
+                    <select name="drink" class="form-control">
+                    <% drink.forEach((drinks)=> {%>                        
+                        <% if(drinks._id == bill.drink_id) {%>
+                            <option value="<%= drinks._id%>" selected><%= drinks.Name%></option>
+                        <% } else { %>
+                            <option value="<%= drinks._id%>"><%= drinks.Name%></option>
+                        <% } %>
+                    <%})%>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="type">Table</label>
+                    <select name="table" class="form-control">
+                    <% table.forEach((tables)=> {%>                  
+                        <% if(tables._id == bill.table_id) {%>
+                            <option value="<%= tables._id%>" selected><%= tables.Name%></option>
+                        <% } else { %>
+                            <option value="<%= tables._id%>"><%= tables.Name%></option>
+                        <% } %>
+                    <%})%>
+                    </select>
+                </div>
+                <input type="hidden" name="id" value="<%=bill.id%>">
+                <div class="form-group col-md-6">
+                    <button type="submit" class="btn btn-primary"> Update</button>
+                </div>
+              </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../base/footer') -%>

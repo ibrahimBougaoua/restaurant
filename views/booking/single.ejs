@@ -1,0 +1,103 @@
+<%- include('../base/header.ejs') -%>
+<%- include('../base/navbar.ejs') -%>
+<div class="container">
+
+<%- include('../base/messages') -%>
+        
+            <div class="row mb-4">
+                    <div class="col-md-12" style="box-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);">
+                            <nav class="navbar navbar-expand-lg navbar-white">
+                                    <ol class="navbar-nav">
+                                        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="/booking/all">Booking</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">More details</li>
+                                    </ol>
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                      <ul class="navbar-nav ml-auto">
+                                            <li class="nav-item">
+                                              <a class="nav-link btn btn-primary btn-sm mr-2 text-light" href="/booking/all">All</a>
+                                            </li>
+                                            <li class="nav-item">
+                                              <a class="nav-link btn btn-primary btn-sm mr-2 text-light" href="/booking/new">New</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                              </nav>
+                        </div>
+                </div>
+        
+
+                <div class="row w-75 float-left">
+                    <div class="col-md-12 p-4" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+                      <h2 class="display-5 text-muted">More details</h2>
+                      <hr>
+                    <div class="row">
+                        <div class="col-sm-12">
+                          <p class="text-muted float-left w-25">Date</p>
+                          <p class="text-muted float-left"><%=booking.Date %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                          <p class="text-muted float-left w-25">Time</p>
+                          <p class="text-muted float-left"><%=booking.time %></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                          <p class="text-muted float-left w-25">Created at</p>
+                          <p class="text-muted float-left"><%=booking.created_at.toDateString()%></p>
+                        </div>
+                    </div>
+        </div>
+    </div>
+
+        <div class="row w-25 float-right">
+        <div class="col-md-12 p-4 ml-auto" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+            <div class="card" style="width: 100%;border:none;">
+                <img src="/sys/booking.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <a href="<%= '/booking/edit/' + booking.id %>" class="btn btn-primary">Edit</a>
+
+
+                  <div class="float-right">
+
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Delete</button>
+                        
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Are you sure ?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                              <p class="display-5">This booking will be deleted</p>
+      
+                        <form  action="/booking/delete" method="post">
+                          <input type="hidden" name="id" value="<%=booking.id%>">
+                          <div class="form-group">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                          </div>
+                        </form>
+      
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+</div>
+        
+    </div>
+</div>
+</div>
+<%- include('../base/footer.ejs') -%>

@@ -1,0 +1,190 @@
+<%- include('base/header') -%>
+
+<header class="header" id="home">
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top"><span class="text-info font-weight-bold">B</span>ar Houch</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#chefs">Chefs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#Menus">Menus</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#reserve">CALL NOW!  022 022 0220 <span class="reserve"> Reserve a table</span></a>
+          </li>
+          <% if (user) { %>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/users/profile">Profile <img src="<%= '/img/' + user.avatar %>" class="rounded-circle" style="width: 32px;height: 30px;" alt="...">
+            </a>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="jumbotron" style="background-color: #0d122fa3;height: 100%;">
+    <div class="m-5" style="position: relative;top: 8vw;">
+      <p class="display-2 lead text-white text-center" style="border-bottom:1px solid #007bff;">The <span class="text-info font-weight-bold">B</span>ar Houch</p>
+      <p class="lead text-white text-center">READY TO BE OPENED</p>
+    </div>
+  </div>
+ 
+  </header>
+
+  <section id="about" class="m-5">
+    <div class="container">
+      <div class="row bg-white">
+        <div class="col-lg-6 mx-auto mt-3">
+            <h4 class="m-3">Lorem ipsum dolor sit adipisicing elit</h4>
+            <p class="parag text-left m-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
+            <p class="parag text-left m-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
+        </div>
+        <div class="col-lg-6 mx-auto">
+            <img src="img/about.jpg" class="card-img-top" alt="...">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="chefs" class="m-5">
+    <div class="container">
+      <div class="row bg-white">
+        <div class="col-lg-12 mx-auto mb-2">
+                <h4 class="text-center mt-4">Meet our chefs</h4>
+                <p class="card-text text-center"><small class="text-muted">THEY ARE NICE & FRIENDLY</small></p>
+                <div class="card-group">
+                        <div class="card m-2 hovereffect">
+                          <img src="sys/chef-1.jpg" class="card-img-top" alt="...">
+                          <div class="overlay">
+                                <h2>Ibrahim</h2>
+                                <a class="info" href="#">link here</a>
+                          </div>
+                        </div>
+                        <div class="card m-2 hovereffect">
+                          <img src="sys/chef-2.jpg" class="card-img-top" alt="...">
+                          <div class="overlay">
+                                <h2>Ramy</h2>
+                                <a class="info" href="#">link here</a>
+                          </div>
+                        </div>
+                        <div class="card m-2 hovereffect">
+                          <img src="sys/chef-3.jpg" class="card-img-top" alt="...">
+                          <div class="overlay">
+                                <h2>Lamine</h2>
+                                <a class="info" href="#">link here</a>
+                          </div>
+                        </div>
+                        <div class="card m-2 hovereffect">
+                          <img src="sys/chef-4.jpg" class="card-img-top" alt="...">
+                          <div class="overlay">
+                                <h2>Krimo</h2>
+                                <a class="info" href="#">link here</a>
+                          </div>
+                        </div>
+                        <div class="card m-2 hovereffect">
+                          <img src="sys/chef-5.jpg" class="card-img-top" alt="...">
+                          <div class="overlay">
+                                <h2>Islam</h2>
+                                <a class="info" href="#">link here</a>
+                          </div>
+                        </div>
+                      </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="Menus" class="m-5">
+    <div class="container">
+      <div class="row bg-white">
+        <div class="col-lg-12 mx-auto">
+            <h4 class="text-center mt-4">Our Menus</h4>
+            <p class="card-text text-center"><small class="text-muted">TEA TIME & DINING</small></p>
+            <div class="col-lg-12 mx-auto mt-3">
+              <div class="d-flex flex-row bd-highlight justify-content-center">
+                  <div class="bd-highlight hovereffect"><img src="sys/menu-1.jpg" class="h-100 w-100" alt="...">
+                    <div class="overlay">
+                            <h2>Loubia & El har</h2>
+                      </div>
+                </div>
+                  <div class="bd-highlight hovereffect"><img src="sys/menu-2.jpg" class="h-100 w-100" alt="...">
+                    <div class="overlay">
+                            <h2>Milk & Khobz</h2>
+                      </div>
+                  </div>
+                  <div class="bd-highlight hovereffect"><img src="sys/menu-3.jpg" class="h-100 w-100" alt="...">
+                    <div class="overlay">
+                            <h2>Ladess & Khobz</h2>
+                      </div>
+                  </div>
+              </div>
+              <div class="d-flex flex-row bd-highlight justify-content-center">
+                  <div class="bd-highlight hovereffect"><img src="sys/menu-4.jpg" class="h-100 w-100" alt="...">
+                      <div class="overlay">
+                              <h2>Bid & Khobz</h2>
+                        </div>
+                  </div>
+                  <div class="bd-highlight hovereffect"><img src="sys/menu-5.jpg" class="h-100 w-100" alt="...">
+                    <div class="overlay">
+                            <h2>Mtawem & Khobz</h2>
+                      </div>
+                  </div>
+                  <div class="bd-highlight hovereffect"><img src="sys/chef-6.jpg" class="h-100 w-100" alt="...">
+                    <div class="overlay">
+                            <h2>Ibrahim</h2>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="reserve" class="bg-white">
+      <hr>
+      <div class="container">
+        <div class="row mt-5">
+          <div class="col-sm">
+            <h4 class="mb-3">Find Us</h4>
+            <p class="parag text-left">316 alger bin o bin</p>
+            <p class="parag text-left">trig li moraha 20120</p>
+            <p class="parag text-left">chrachir mor alger</p>
+          </div>
+          <div class="col-sm">
+            <h4 class="mb-3">Open Hours</h4>
+            <p class="parag text-left">Monday: Closed</p>
+            <p class="parag text-left">Tuesday to Friday | 7:00 AM - 9:00 PM</p>
+            <p class="parag text-left">Saturday - Sunday | 11:00 AM - 10:00 PM</p>
+          </div>
+          <div class="col-sm">
+            <h4 class="mb-3">Reservation</h4>
+            <p class="parag text-left">040-070-0880 | 010-090-0490</p>
+            <p class="parag text-left">info@exemple.com</p>
+            <p class="parag text-left">LINE: some000</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <p class="m-5 parag text-center">Copyright &copy; Bar Houch 2020</p>
+          </div>
+        </div>
+      </div>
+
+    </footer>
+
+<%- include('base/footer') -%>

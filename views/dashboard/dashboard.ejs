@@ -1,0 +1,181 @@
+<%- include('../base/header') -%>
+<%- include('../base/navbar') -%>
+<div class="container mb-4">
+
+    <div class="row mt-4">
+
+        <div class="col-sm-4 mr-4 p-3" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+            <div class="card mb-3" style="max-width: 540px;border: none;">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="/sys/user.png" class="card-img" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Users</h5>
+                      <button type="button" class="btn btn-secondary btn-sm">
+                          Number of Users <span class="badge badge-light"><% if(userTotal != "") { %>  <%= userTotal %> <% } else { %> 0 <% } %></span>
+                     </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3 mr-4 p-3" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+            <div class="card mb-3" style="max-width: 540px;border: none;">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="/sys/waiter.png" class="card-img" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Waiters</h5>
+                      <button type="button" class="btn btn-secondary btn-sm">
+                          Number of Waiters <span class="badge badge-light"><% if(waiterTotal != "") { %>  <%= waiterTotal %> <% } else { %> 0 <% } %></span>
+                     </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4 mr-2 p-3" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+            <div class="card mb-3" style="max-width: 540px;border: none;">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="/sys/customer.png" class="card-img" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Customers</h5>
+                      <button type="button" class="btn btn-secondary btn-sm">
+                          Number of Customers <span class="badge badge-light"><% if(customerTotal != "") { %>  <%= customerTotal %> <% } else { %> 0 <% } %></span>
+                     </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="row mt-4">
+
+        <div class="col-sm-4 mr-4 p-3" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+            <div class="card mb-3" style="max-width: 540px;border: none;">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="/sys/chef.png" class="card-img" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Chefs</h5>
+                      <button type="button" class="btn btn-secondary btn-sm">
+                          Number of Chefs <span class="badge badge-light"><% if(chefTotal != "") { %>  <%= chefTotal %> <% } else { %> 0 <% } %></span>
+                     </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3 mr-4 p-3" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+            <div class="card mb-3" style="max-width: 540px;border: none;">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="/sys/table.png" class="card-img" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Tables</h5>
+                      <button type="button" class="btn btn-secondary btn-sm">
+                          Number of Tables <span class="badge badge-light"><% if(tableTotal != "") { %>  <%= tableTotal %> <% } else { %> 0 <% } %></span>
+                     </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4 mr-2 p-3" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+            <div class="card mb-3" style="max-width: 540px;border: none;">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="/sys/food.png" class="card-img" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Foods</h5>
+                      <button type="button" class="btn btn-secondary btn-sm">
+                         Number of Foods <span class="badge badge-light"><% if(foodTotal != "") { %>  <%= foodTotal %> <% } else { %> 0 <% } %></span>
+                     </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+
+    <div class="row mt-4">
+
+        <div class="col-sm-4 mr-4 p-3" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+            <div class="card mb-3" style="max-width: 540px;border: none;">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="/sys/drink.png" class="card-img" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Drinks</h5>
+                      <button type="button" class="btn btn-secondary btn-sm">
+                          Number of Drinks <span class="badge badge-light"><% if(drinkTotal != "") { %>  <%= drinkTotal %> <% } else { %> 0 <% } %></span>
+                     </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3 mr-4 p-3" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+          
+            <div class="card mb-3" style="max-width: 540px;border: none;">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="/sys/bill.png" class="card-img" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">bills</h5>
+                      <button type="button" class="btn btn-secondary btn-sm">
+                          Number of bills <span class="badge badge-light"><% if(billTotal != "") { %>  <%= billTotal %> <% } else { %> 0 <% } %></span>
+                     </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4 mr-2 p-3" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+            <div class="card mb-3" style="max-width: 540px;border: none;">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="/sys/booking.png" class="card-img" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Booking</h5>
+                      <button type="button" class="btn btn-secondary btn-sm">
+                          Number of Booking <span class="badge badge-light"><% if(bookingTotal != "") { %>  <%= bookingTotal %> <% } else { %> 0 <% } %></span>
+                     </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+</div>
+<%- include('../base/footer') -%>
