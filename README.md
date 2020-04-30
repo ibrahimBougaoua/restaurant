@@ -100,7 +100,7 @@ Customer {
 }
 
 // Booking schema
-booking{
+booking {
         _id : ("5e8626c48b66dd116813b732"),
         Date : "2020-04-16",
         time : "6:00am",
@@ -110,7 +110,7 @@ booking{
 }
 
 // Bills schema
-Bill{
+Bill {
         _id : ("5e95f5bbd0315c3d6c25f179"),
         Sub_Total : "88.12",
         Vat : "66.12",
