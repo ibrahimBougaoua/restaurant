@@ -8,6 +8,8 @@
 
 3 -> Fake Data to using application by typing [ node ./seeder/seeder.js ]
 
+Password : ddd
+
 <h3>Mvc concept : </h3>
 
 ![stack Overflow](https://2.bp.blogspot.com/-I6bIQMAj-Nc/WWaQAbXnfJI/AAAAAAAABZg/aVDBAFcksSogYYNgWqd1GIkOZgtQuCQ7ACLcBGAs/s320/icon-aspnetmvc.png)
