@@ -8,7 +8,7 @@
 
 3 -> Fake Data to using application by typing [ node ./seeder/seeder.js ]
 
-Password : ddd
+<strong>Password : ddd</strong>
 
 <h3>Mvc concept : </h3>
 
