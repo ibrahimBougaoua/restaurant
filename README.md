@@ -1,3 +1,5 @@
+[![Watch the video](https://i9.ytimg.com/vi/SS7r8sERSZI/mq2.jpg?sqp=CMyI9fkF&rs=AOn4CLAyyZrKDFH1zyp9UqlD3TVXFjNjQw)](https://www.youtube.com/watch?v=SS7r8sERSZI&t=3s)
+
 # Simple web application using Node js & MongoDb
 
 <h3>installation steps: </h3>
